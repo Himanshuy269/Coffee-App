@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.coffeeapp.screens.homeScreen.HomeScreen
 import com.example.coffeeapp.screens.welcomescreen.WelcomeScreen
 import com.example.coffeeapp.ui.theme.CoffeeAppTheme
 
@@ -25,13 +26,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CoffeeAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) {
-                    innerPadding ->
-
+                HomeScreen()
                 }
             }
         }
-    }
 }
 
-//@Composable
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenPreview(){
+    CoffeeAppTheme{
+        HomeScreen()
+    }
+}
