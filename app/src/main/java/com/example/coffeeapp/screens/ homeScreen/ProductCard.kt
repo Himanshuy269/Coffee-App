@@ -1,0 +1,141 @@
+package com.example.coffeeapp.screens.homeScreen
+
+//import androidx.appcompat.resources.R
+import com.example.coffeeapp.R
+import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material3.Card
+import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Column
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import com.example.coffeeapp.ui.theme.LightBrown
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.ButtonDefaults
+import com.example.coffeeapp.ui.theme.IvoryWhite
+import androidx.compose.ui.Alignment
+import com.example.coffeeapp.model.Product
+import androidx.compose.material3.CardDefaults
+import com.example.coffeeapp.ui.theme.LightGray
+
+//@Preview()
+@Composable
+fun productCard(
+    product : Product,
+    modifier: Modifier = Modifier
+){
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        shape = RoundedCornerShape(16.dp),
+        colors= CardDefaults.cardColors(
+            containerColor = LightGray.copy(alpha=0.6f)
+        ),
+//        elevation = CardDefaults.cardElevation(
+//            defaultElevation = 4.dp
+//        )
+    ){
+        Column(
+            modifier = Modifier.padding(8.dp)
+        ){
+            Box(
+                modifier=Modifier
+                    .fillMaxWidth()
+                    .height(160 .dp)
+            ){
+                Image(
+                    painter= painterResource(R.drawable.coffee_1),
+                    contentDescription = "product Image",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clip(RoundedCornerShape(24.dp))
+                )
+                Box(
+                    modifier = Modifier.align(Alignment.TopEnd)
+                        .padding(8.dp)
+                        //.clip(RoundedCornerShape(10.dp)
+                        .background(color=LightGray.copy(alpha=0.8f),
+                            shape = RoundedCornerShape(10.dp)
+                        )
+                        .padding(horizontal = 8.dp,vertical=4.dp)
+                ){
+                    Icon(painter=painterResource(R.drawable.regular_outline_heart),
+                        contentDescription = "Add to favourite",
+                        tint=LightBrown,
+                        modifier=Modifier.size(30.dp)
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(text=product.name,
+                style=typography.titleMedium.copy(
+                    color=Color.Black,
+                    fontWeight = FontWeight.SemiBold
+                )
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text=product.description,
+                style= MaterialTheme.typography.bodySmall.copy(
+                    color=Color.Gray
+                ),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "$${product.price}",
+                    style = typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = LightBrown
+                    )
+                )
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier.background(
+                        color=LightBrown,
+                        shape = RoundedCornerShape(10.dp))
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add to Cart",
+                        tint = IvoryWhite
+                    )
+                }
+            }
+        }
+    }
+}
+
