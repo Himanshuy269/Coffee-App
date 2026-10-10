@@ -70,7 +70,7 @@ fun productCard(
                     .height(160 .dp)
             ){
                 Image(
-                    painter= painterResource(R.drawable.coffee_1),
+                    painter= painterResource(product.imageRes),
                     contentDescription = "product Image",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
