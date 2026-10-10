@@ -81,7 +81,7 @@ fun productCard(
                     modifier = Modifier.align(Alignment.TopEnd)
                         .padding(8.dp)
                         //.clip(RoundedCornerShape(10.dp)
-                        .background(color=LightGray.copy(alpha=0.8f),
+                        .background(color=LightGray.copy(alpha=0.7f),
                             shape = RoundedCornerShape(10.dp)
                         )
                         .padding(horizontal = 8.dp,vertical=4.dp)
@@ -89,7 +89,7 @@ fun productCard(
                     Icon(painter=painterResource(R.drawable.regular_outline_heart),
                         contentDescription = "Add to favourite",
                         tint=LightBrown,
-                        modifier=Modifier.size(30.dp)
+                        modifier=Modifier.size(34.dp)
                     )
                 }
             }
