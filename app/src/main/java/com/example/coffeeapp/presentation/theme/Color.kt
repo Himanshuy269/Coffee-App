@@ -1,4 +1,4 @@
-package com.example.coffeeapp.ui.theme
+package com.example.coffeeapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

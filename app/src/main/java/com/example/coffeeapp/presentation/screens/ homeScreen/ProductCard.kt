@@ -4,7 +4,6 @@ package com.example.coffeeapp.screens.homeScreen
 import com.example.coffeeapp.R
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.Card
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,29 +18,25 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import com.example.coffeeapp.ui.theme.LightBrown
+import com.example.coffeeapp.presentation.theme.LightBrown
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.ButtonDefaults
-import com.example.coffeeapp.ui.theme.IvoryWhite
+import com.example.coffeeapp.presentation.theme.IvoryWhite
 import androidx.compose.ui.Alignment
-import com.example.coffeeapp.model.Product
+import com.example.coffeeapp.domain.model.Product
 import androidx.compose.material3.CardDefaults
-import com.example.coffeeapp.ui.theme.LightGray
+import com.example.coffeeapp.presentation.theme.LightGray
 
 //@Preview()
 @Composable
@@ -103,7 +98,7 @@ fun productCard(
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text=product.description,
-                style= MaterialTheme.typography.bodySmall.copy(
+                style= typography.bodySmall.copy(
                     color=Color.Gray
                 ),
                 maxLines = 1,

@@ -1,4 +1,4 @@
-package com.example.coffeeapp.screens.ui_component
+package com.example.coffeeapp.presentation.ui_component
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -15,7 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.coffeeapp.ui.theme.LightBrown
+import com.example.coffeeapp.presentation.theme.LightBrown
 import androidx.compose.ui.graphics.Color
 
 @Preview(showBackground = true)
@@ -42,7 +42,7 @@ fun MyBottomNavBar(){
                 },
                 selected = false,
                 onClick = {},
-                modifier = Modifier.size(50.dp),
+                modifier    = Modifier.size(50.dp),
                 label = {Text(item.title)},
                 alwaysShowLabel = false,
                 colors = NavigationBarItemDefaults.colors(
