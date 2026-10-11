@@ -55,7 +55,7 @@ fun productCard(
             .padding(8.dp),
         shape = RoundedCornerShape(16.dp),
         colors= CardDefaults.cardColors(
-            containerColor = LightGray.copy(alpha=0.6f)
+            containerColor = LightGray
         ),
 //        elevation = CardDefaults.cardElevation(
 //            defaultElevation = 4.dp

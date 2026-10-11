@@ -15,13 +15,17 @@ import androidx.compose.foundation.layout.Spacer
 //@Preview
 @Composable
 fun ProductsGrid(
-    products: List<Product>
+    products: List<Product>,
+    topContent: @Composable ()-> Unit
 ){
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp)
     ) {
+        item {
+            topContent()
+        }
         items(products.chunked(2)){ rowItems ->
             Row(
                 modifier = Modifier.fillMaxWidth()
