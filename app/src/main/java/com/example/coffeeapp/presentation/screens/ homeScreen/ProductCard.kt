@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,17 +38,21 @@ import androidx.compose.ui.Alignment
 import com.example.coffeeapp.domain.model.Product
 import androidx.compose.material3.CardDefaults
 import com.example.coffeeapp.presentation.theme.LightGray
+import androidx.navigation.NavController
+import com.example.coffeeapp.presentation.navigation.Routes
 
 //@Preview()
 @Composable
 fun productCard(
     product : Product,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ){
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable{navController.navigate(Routes.DetailScreen(product.id))},
         shape = RoundedCornerShape(16.dp),
         colors= CardDefaults.cardColors(
             containerColor = LightGray

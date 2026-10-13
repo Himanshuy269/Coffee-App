@@ -12,10 +12,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.navigation.NavController
 import com.example.coffeeapp.domain.model.Product
 import com.example.coffeeapp.R
+import androidx.compose.ui.graphics.Color
 
 //@Preview()
 @Composable
-fun DetailScreen(navController: NavController){
+fun DetailScreen(productId:Int,navController: NavController){
     val products = listOf(
         Product(id = 1, name = "Espresso", description = "Strong and rich", price = 3.80, imageRes = R.drawable.coffee_2),
         Product(id = 2, name = "Latte", description = "Smooth and creamy", price = 4.50, imageRes = R.drawable.coffee_3),
@@ -25,22 +26,26 @@ fun DetailScreen(navController: NavController){
         Product(id = 6, name = "Flat White", description = "Velvety smooth", price = 4.40, imageRes = R.drawable.coffee_6),
         Product(id = 7, name = "Iced Mocha", description = "Refreshing and rich", price = 4.70, imageRes = R.drawable.coffee_4)
     )
-    val selectedProduct = products.find{it.id == 1}
+    val selectedProduct = products.find{it.id == productId }
+    if(selectedProduct == null){
+        Text(text="Product not found",color=Color.Red)
+        return
+    }
     Scaffold(
-        topBar={ DetailsScreenTopAppBar() },
+        topBar={ DetailsScreenTopAppBar(navController) },
         bottomBar={ DetailScreenBottomBar() }
     ) { innerPadding ->
         LazyColumn {
             item {
                 ProductDetailsContent(
-                    product = Product(
-                        id = 1,
-                        name = "Espresso",
-                        description = "Strong and rich",
-                        price = 3.80,
-                        imageRes = R.drawable.coffee_2
-                    ),
-                    //selectedProduct,
+//                    product = Product(
+//                        id = 1,
+//                        name = "Espresso",
+//                        description = "Strong and rich",
+//                        price = 3.80,
+//                        imageRes = R.drawable.coffee_2
+//                    ),
+                    selectedProduct,
                     innerPadding
                 )
             }
