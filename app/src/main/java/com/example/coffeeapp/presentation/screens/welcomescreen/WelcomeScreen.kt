@@ -26,11 +26,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.navigation.NavController
+import com.example.coffeeapp.presentation.navigation.Routes
 import com.example.coffeeapp.presentation.theme.LightBrown
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
-fun WelcomeScreen(){
+fun WelcomeScreen(navController: NavController){
     Box(
         modifier = Modifier.fillMaxSize().background(color = Color.Black)
     ){
@@ -58,7 +60,7 @@ fun WelcomeScreen(){
             )
             Spacer(modifier = Modifier.height(50.dp))
             Button(
-                onClick = {},
+                onClick = { navController.navigate(Routes.HomeScreen) },
                 modifier = Modifier.fillMaxWidth().height(55.dp),
                 shape = RoundedCornerShape(10.dp),
                 colors= ButtonDefaults.buttonColors(

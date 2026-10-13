@@ -9,12 +9,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.navigation.NavController
 import com.example.coffeeapp.domain.model.Product
 import com.example.coffeeapp.R
 
-@Preview()
+//@Preview()
 @Composable
-fun DetailScreen(){
+fun DetailScreen(navController: NavController){
     val products = listOf(
         Product(id = 1, name = "Espresso", description = "Strong and rich", price = 3.80, imageRes = R.drawable.coffee_2),
         Product(id = 2, name = "Latte", description = "Smooth and creamy", price = 4.50, imageRes = R.drawable.coffee_3),

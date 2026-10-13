@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.example.coffeeapp.screens.homeScreen.HomeScreen
 import com.example.coffeeapp.presentation.theme.CoffeeAppTheme
 import com.example.coffeeapp.presentation.screens.detailscreen.DetailScreen
-
+import com.example.coffeeapp.presentation.navigation.NavGraph
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +18,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoffeeAppTheme {
                 //HomeScreen()
-                DetailScreen()
+                //DetailScreen()
+                NavGraph()
                 }
             }
         }
@@ -28,6 +30,6 @@ class MainActivity : ComponentActivity() {
 fun HomeScreenPreview(){
     CoffeeAppTheme{
         //HomeScreen()
-        DetailScreen()
+        NavGraph()
     }
 }

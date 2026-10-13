@@ -29,12 +29,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavController
 import com.example.coffeeapp.domain.model.Product
 
 
-@Preview(showBackground=true, showSystemUi = true)
+//@Preview(showBackground=true, showSystemUi = true)
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
     val location = "Janatha Rd, Palarivattom"
     Scaffold(
         bottomBar={ MyBottomNavBar() }
