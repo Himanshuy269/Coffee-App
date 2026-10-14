@@ -26,12 +26,12 @@ fun MyBottomNavBar(navController: NavController,routes:String){
 //Bottom Nav Items
     val navitems = listOf(
         NavItem("Home", R.drawable.regular_outline_home,Routes.HomeScreen),
-        NavItem("Favorites", R.drawable.regular_outline_heart, Routes.FavouriteScreen),
+        NavItem("Favorites", R.drawable.regular_outline_heart, Routes.FavouritesScreen),
         NavItem("Cart", R.drawable.regular_outline_bag,Routes.CartScreen),
         NavItem("Profile", R.drawable.outline_account_circle_24, Routes.ProfileScreen)
     )
     NavigationBar(
-        modifier = Modifier.height(80.dp),
+        modifier = Modifier.height(84.dp),
         containerColor = MaterialTheme.colorScheme.surface,
     ){
         navitems.forEachIndexed { index, item ->
@@ -42,7 +42,7 @@ fun MyBottomNavBar(navController: NavController,routes:String){
                         contentDescription = item.title
                     )
                 },
-                selected = item.title==routes,//study this 
+                selected = item.title==routes,//study this
                 //Handling Bottom Bar Navigation
                 onClick = {
                     navController.navigate(item.routes){

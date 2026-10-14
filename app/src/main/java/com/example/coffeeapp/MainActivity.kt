@@ -13,7 +13,10 @@ import com.example.coffeeapp.presentation.screens.detailscreen.DetailScreen
 import com.example.coffeeapp.presentation.navigation.NavGraph
 import com.example.coffeeapp.presentation.screens.cartScreen.CartItemCard
 import com.example.coffeeapp.presentation.screens.cartScreen.CartScreen
+import com.example.coffeeapp.presentation.screens.favouritesScreen.FavouritesScreen
+import androidx.navigation.compose.rememberNavController
 
+//val navController= rememberNavController()
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,7 @@ class MainActivity : ComponentActivity() {
                 //DetailScreen()
                 NavGraph()
                 //CartScreen()
+                //FavouritesScreen()
                 }
             }
         }

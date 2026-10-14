@@ -1,75 +1,98 @@
 package com.example.coffeeapp.presentation.screens.welcomescreen
 
-//import androidx.appcompat.resources.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.coffeeapp.R
-import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.coffeeapp.R
 import com.example.coffeeapp.presentation.navigation.Routes
 import com.example.coffeeapp.presentation.theme.LightBrown
 
-//@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
-fun WelcomeScreen(navController: NavController){
+fun WelcomeScreenPreview() {
+    WelcomeScreen(navController = rememberNavController())
+}
+
+@Composable
+fun WelcomeScreen(navController: NavController) {
     Box(
-        modifier = Modifier.fillMaxSize().background(color = Color.Black)
-    ){
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = Color.Black)
+    ) {
         Image(
-            painter= painterResource(id = R.drawable.image_splash),
-            contentDescription = "Welcome Image"
+            painter = painterResource(id = R.drawable.image_splash),
+            contentDescription = "Welcome Image",
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.60f),
+           // contentScale = ContentScale.Crop
         )
         Column(
-            modifier = Modifier.fillMaxSize().padding(vertical = 70.dp, horizontal = 50.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 30.dp, vertical = 40.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Bottom
-        ){
-            Text(text = "Fall in love with Coffee in Blissful Delight!",
+        ) {
+            Text(
+                text = "Fall in Love with Coffee in Blissful Delight!",
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
-                fontSize = 28.sp,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text="welcome to our cozy coffee corner,where every cup is a delight for you",
-                color = Color.LightGray,
+                fontSize = 26.sp,
                 textAlign = TextAlign.Center,
-                fontSize = 15.sp,
+                lineHeight = 36.sp
             )
-            Spacer(modifier = Modifier.height(50.dp))
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                text = "Welcome to our cozy coffee corner, where every cup is a delight for you.",
+                color = Color.Gray,
+                textAlign = TextAlign.Center,
+                fontSize = 14.sp,
+                lineHeight = 20.sp
+            )
+            Spacer(modifier = Modifier.height(32.dp))
             Button(
                 onClick = { navController.navigate(Routes.HomeScreen) },
-                modifier = Modifier.fillMaxWidth().height(55.dp),
-                shape = RoundedCornerShape(10.dp),
-                colors= ButtonDefaults.buttonColors(
-                    containerColor = LightBrown,
-                    //contentColor = Color.LightGray
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = LightBrown
                 )
-            ){
-                Text(text = "Get Started",
-                    fontSize = 18.sp)
+            ) {
+                Text(
+                    text = "Get Started",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White
+                )
             }
         }
     }
