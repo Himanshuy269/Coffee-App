@@ -11,6 +11,9 @@ import com.example.coffeeapp.screens.homeScreen.HomeScreen
 import com.example.coffeeapp.presentation.theme.CoffeeAppTheme
 import com.example.coffeeapp.presentation.screens.detailscreen.DetailScreen
 import com.example.coffeeapp.presentation.navigation.NavGraph
+import com.example.coffeeapp.presentation.screens.cartScreen.CartItemCard
+import com.example.coffeeapp.presentation.screens.cartScreen.CartScreen
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +22,8 @@ class MainActivity : ComponentActivity() {
             CoffeeAppTheme {
                 //HomeScreen()
                 //DetailScreen()
-                NavGraph()
+                //NavGraph()
+                CartScreen()
                 }
             }
         }
