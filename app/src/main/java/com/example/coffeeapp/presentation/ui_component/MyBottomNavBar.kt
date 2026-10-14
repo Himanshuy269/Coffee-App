@@ -17,16 +17,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.coffeeapp.presentation.theme.LightBrown
 import androidx.compose.ui.graphics.Color
+import com.example.coffeeapp.presentation.navigation.Routes
+import androidx.navigation.NavController
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
-fun MyBottomNavBar(){
+fun MyBottomNavBar(navController: NavController,routes:String){
 //Bottom Nav Items
     val navitems = listOf(
-        NavItem("Home", R.drawable.regular_outline_home),
-        NavItem("Favorites", R.drawable.regular_outline_heart),
-        NavItem("Cart", R.drawable.regular_outline_bag),
-        NavItem("Profile", R.drawable.outline_account_circle_24)
+        NavItem("Home", R.drawable.regular_outline_home,Routes.HomeScreen),
+        NavItem("Favorites", R.drawable.regular_outline_heart, Routes.FavouriteScreen),
+        NavItem("Cart", R.drawable.regular_outline_bag,Routes.CartScreen),
+        NavItem("Profile", R.drawable.outline_account_circle_24, Routes.ProfileScreen)
     )
     NavigationBar(
         modifier = Modifier.height(80.dp),
@@ -40,8 +42,17 @@ fun MyBottomNavBar(){
                         contentDescription = item.title
                     )
                 },
-                selected = false,
-                onClick = {},
+                selected = item.title==routes,//study this 
+                //Handling Bottom Bar Navigation
+                onClick = {
+                    navController.navigate(item.routes){
+                        popUpTo(navController.graph.startDestinationId){
+                            saveState = true
+                        }
+                        launchSingleTop=true
+                        restoreState = true
+                    }
+                },
                 modifier    = Modifier.size(50.dp),
                 label = {Text(item.title)},
                 alwaysShowLabel = false,
@@ -59,5 +70,6 @@ fun MyBottomNavBar(){
 
 data class NavItem(
     val title: String,
-    val icon: Int
+    val icon: Int,
+    val routes: Routes
 )

@@ -15,11 +15,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.coffeeapp.R
+import com.example.coffeeapp.presentation.navigation.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 //@Preview
     @Composable
-    fun CartScreenTopAppBar() {
+    fun CartScreenTopAppBar(navController: NavController) {
     TopAppBar(
         title = {
             Text(
@@ -34,7 +35,7 @@ import com.example.coffeeapp.R
             Icon(
                 painter = painterResource(R.drawable.regular_outline_arrow_left),
                 contentDescription = "Back Button",
-                modifier = Modifier.padding(start = 12.dp).clickable(onClick = {})
+                modifier = Modifier.padding(start = 12.dp).clickable(onClick = {navController.navigate(Routes.HomeScreen)})
             )
         }
 

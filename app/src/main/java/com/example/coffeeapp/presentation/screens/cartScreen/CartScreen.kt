@@ -38,9 +38,9 @@ import androidx.compose.ui.Alignment
 import com.example.coffeeapp.presentation.navigation.Routes
 import com.example.coffeeapp.presentation.ui_component.MyBottomNavBar
 
-@Preview
+
 @Composable
-fun CartScreen() {
+fun CartScreen(navController: NavController) {
     val cartproducts = listOf(
         Product(
             id = 1,
@@ -68,13 +68,11 @@ fun CartScreen() {
     var deliveryFee by remember { mutableStateOf(1.0) }
     val totalAmount by remember { mutableStateOf(amount + deliveryFee) }
     Scaffold(
-        topBar = { CartScreenTopAppBar()
-            },
-        bottomBar = {MyBottomNavBar()
-        }
+        topBar = { CartScreenTopAppBar(navController) },
+        bottomBar = {MyBottomNavBar(navController,"Cart") }
     ) { innerPadding ->
         LazyColumn(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(start = 16.dp,end=16.dp)
                 .padding(innerPadding)
         ) {
             item {

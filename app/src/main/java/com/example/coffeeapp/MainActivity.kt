@@ -22,8 +22,8 @@ class MainActivity : ComponentActivity() {
             CoffeeAppTheme {
                 //HomeScreen()
                 //DetailScreen()
-                //NavGraph()
-                CartScreen()
+                NavGraph()
+                //CartScreen()
                 }
             }
         }

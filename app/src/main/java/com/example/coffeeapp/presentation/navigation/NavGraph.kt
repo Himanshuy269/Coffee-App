@@ -9,6 +9,8 @@ import com.example.coffeeapp.presentation.screens.detailscreen.DetailScreen
 import com.example.coffeeapp.presentation.screens.welcomescreen.WelcomeScreen
 import com.example.coffeeapp.screens.homeScreen.HomeScreen
 import kotlinx.serialization.Serializable
+import com.example.coffeeapp.presentation.navigation.Routes.CartScreen
+import com.example.coffeeapp.presentation.screens.cartScreen.CartScreen
 import com.example.coffeeapp.presentation.navigation.Routes.DetailScreen
 @Composable
 fun NavGraph() {
@@ -24,6 +26,9 @@ fun NavGraph() {
         composable<Routes.DetailScreen>{ backStackEntry->
             val args=backStackEntry.toRoute<Routes.DetailScreen>()
             DetailScreen(productId=args.productId,navController)
+        }
+        composable<Routes.CartScreen>{
+            CartScreen(navController)
         }
     }
 
